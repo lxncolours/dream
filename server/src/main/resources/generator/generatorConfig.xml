@@ -50,12 +50,19 @@
 <!--               enableSelectByExample="false"-->
 <!--               selectByExampleQueryId="false"/>-->
 
-        <table tableName="customer" domainObjectName="Customer" enableCountByExample="false"
+<!--        <table tableName="customer" domainObjectName="Customer" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            <generatedKey column="customer_id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
+        <table tableName="category" domainObjectName="Category" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
                selectByExampleQueryId="false">
-            <generatedKey column="customer_id" sqlStatement="Mysql" identity="true"/>
+<!--            <generatedKey column="category_id" sqlStatement="Mysql" identity="true"/>-->
         </table>
 <!--        <table tableName="bal" domainObjectName="Bal" enableCountByExample="false"-->
 <!--               enableUpdateByExample="false"-->

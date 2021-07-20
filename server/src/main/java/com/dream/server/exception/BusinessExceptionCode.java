@@ -12,6 +12,7 @@ public enum BusinessExceptionCode {
     EXISTS_BAL("存在未消费余额,删除失败"),
     NOT_EXISTS_BAL("余额信息不存在"),
     NOT_MATCH_BAL("余额信息不匹配,请稍后再试"),
+    EXISTS_CHILDREN("存在未删除的子分类,不允许删除父分类"),
     ;
 
     private String desc;

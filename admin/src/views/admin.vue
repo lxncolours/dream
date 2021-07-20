@@ -59,8 +59,12 @@
                   active-class="collapse-item active"
                   >用户管理</router-link
                 >
-                <a class="collapse-item" href="buttons.html">Buttons</a>
-                <a class="collapse-item" href="cards.html">Cards</a>
+                <router-link
+                  to="/admin/category"
+                  class="collapse-item"
+                  active-class="collapse-item active"
+                >分类管理</router-link
+                >
               </div>
             </div>
           </li>

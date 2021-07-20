@@ -5,6 +5,7 @@ import Login from '../views/login.vue'
 import Welcome from '../views/admin/welcome.vue'
 import User from '../views/admin/user.vue'
 import Customer from '../views/admin/customer.vue'
+import Category from '../views/admin/category.vue'
 
 Vue.use(VueRouter)
 
@@ -40,6 +41,10 @@ const routes = [
       {
         path: 'customer',
         component: Customer
+      },
+      {
+        path: 'category',
+        component: Category
       }
     ]
   }

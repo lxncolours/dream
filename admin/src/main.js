@@ -23,7 +23,6 @@ axios.interceptors.request.use(function (config) {
   const token = Tool.getLoginUser().token
   if (Tool.isNotEmpty(token)) {
     config.headers.token = token
-    console.log('请求headers增加token:', token)
   }
   return config
 })

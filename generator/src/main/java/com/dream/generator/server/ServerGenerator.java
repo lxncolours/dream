@@ -11,7 +11,7 @@ import java.io.File;
 import java.util.*;
 
 public class ServerGenerator {
-    static String MODULE = "business";
+    static String MODULE = "system";
 //    static String toDtoPath = "server\\src\\main\\java\\com\\dream\\server\\dto\\";
     static String toDtoPath = MODULE + "\\src\\main\\java\\com\\dream\\" + MODULE + "\\vo\\";
 //    static String toInterfacePath = "server\\src\\main\\java\\com\\dream\\server\\api\\";
