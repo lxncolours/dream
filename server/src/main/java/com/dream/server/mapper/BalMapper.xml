@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dream.server.mapper.BalMapper">
+  <resultMap id="BaseResultMap" type="com.dream.server.domain.Bal">
+    <id column="bal_id" jdbcType="INTEGER" property="balId" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="balance" jdbcType="DECIMAL" property="balance" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    bal_id, customer_id, balance
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bal
+    where bal_id = #{balId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bal
+    where bal_id = #{balId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dream.server.domain.Bal">
+    insert into bal (bal_id, customer_id, balance
+      )
+    values (#{balId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, #{balance,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dream.server.domain.Bal">
+    insert into bal
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="balId != null">
+        bal_id,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="balance != null">
+        balance,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="balId != null">
+        #{balId,jdbcType=INTEGER},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dream.server.domain.Bal">
+    update bal
+    <set>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="balance != null">
+        balance = #{balance,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where bal_id = #{balId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dream.server.domain.Bal">
+    update bal
+    set customer_id = #{customerId,jdbcType=INTEGER},
+      balance = #{balance,jdbcType=DECIMAL}
+    where bal_id = #{balId,jdbcType=INTEGER}
+  </update>
+</mapper>

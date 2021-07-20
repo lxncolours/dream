@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dream.business.dao.CustomerDao">
+    <resultMap id="CustomerVoMap" type="com.dream.business.vo.CustomerVo">
+        <id column="customer_id" jdbcType="INTEGER" property="customerId"/>
+        <result column="customer_name" jdbcType="VARCHAR" property="customerName"/>
+        <result column="mobile" jdbcType="BIGINT" property="mobile"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="sex" jdbcType="CHAR" property="sex"/>
+        <result column="consumption_amount" jdbcType="DECIMAL" property="consumptionAmount"/>
+        <result column="balance" jdbcType="DECIMAL" property="balance"/>
+    </resultMap>
+
+    <select id="list" resultMap="CustomerVoMap">
+        select u.customer_id,u.customer_name, u.mobile,u.address,
+        u.sex,u.consumption_amount,b.balance
+        from `customer` u LEFT JOIN bal b ON u.customer_id = b.customer_id
+        where 1 = 1
+        <if test="customerId!=null and  '' != customerId">
+            and u.customer_id = #{customerId}
+        </if>
+        <if test="customerName!=null and  '' != customerName">
+            and u.customer_name = #{customerName}
+        </if>
+        <if test="mobile!=null and  '' != mobile">
+            and u.mobile = #{mobile}
+        </if>
+    </select>
+
+    <select id="queryBalByCustomer" resultType="com.dream.server.domain.Bal">
+        select bal_id balId,balance from bal where customer_id = #{id}
+    </select>
+</mapper>
