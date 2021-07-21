@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dream.system.dao.CategoryDao">
+  <resultMap id="BaseResultMap" type="com.dream.system.vo.CategoryVo">
+    <id column="category_id" jdbcType="CHAR" property="categoryId" />
+    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+  </resultMap>
+  <select id="list" resultMap="BaseResultMap">
+    select category_id,category_name,parent_id,level from category u  where 1 = 1
+    <if test="level!=null">
+      and u.level = #{level}
+    </if>
+    <if test="categoryName!=null and  '' != categoryName">
+      and u.category_name = #{categoryName}
+    </if>
+    <if test="parentId!=null and  '' != parentId">
+      and u.parent_id = #{parentId}
+    </if>
+  </select>
+  <select id="queryByParentId" resultMap="BaseResultMap">
+    select category_id from category where parent_id = #{id}
+  </select>
+
+
+</mapper>
