@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dream.server.mapper.OrderDetMapper">
+  <resultMap id="BaseResultMap" type="com.dream.server.domain.OrderDet">
+    <id column="order_det_id" jdbcType="INTEGER" property="orderDetId" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="stock_id" jdbcType="INTEGER" property="stockId" />
+    <result column="in_price" jdbcType="DECIMAL" property="inPrice" />
+    <result column="out_price" jdbcType="DECIMAL" property="outPrice" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+    <result column="in_money" jdbcType="DECIMAL" property="inMoney" />
+    <result column="out_money" jdbcType="DECIMAL" property="outMoney" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    order_det_id, order_id, goods_id, stock_id, in_price, out_price, num, in_money, out_money
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from order_det
+    where order_det_id = #{orderDetId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from order_det
+    where order_det_id = #{orderDetId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dream.server.domain.OrderDet">
+    <selectKey keyProperty="orderDetId" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into order_det (order_id, goods_id, stock_id, 
+      in_price, out_price, num, 
+      in_money, out_money)
+    values (#{orderId,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, #{stockId,jdbcType=INTEGER}, 
+      #{inPrice,jdbcType=DECIMAL}, #{outPrice,jdbcType=DECIMAL}, #{num,jdbcType=INTEGER}, 
+      #{inMoney,jdbcType=DECIMAL}, #{outMoney,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dream.server.domain.OrderDet">
+    <selectKey keyProperty="orderDetId" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into order_det
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="goodsId != null">
+        goods_id,
+      </if>
+      <if test="stockId != null">
+        stock_id,
+      </if>
+      <if test="inPrice != null">
+        in_price,
+      </if>
+      <if test="outPrice != null">
+        out_price,
+      </if>
+      <if test="num != null">
+        num,
+      </if>
+      <if test="inMoney != null">
+        in_money,
+      </if>
+      <if test="outMoney != null">
+        out_money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="stockId != null">
+        #{stockId,jdbcType=INTEGER},
+      </if>
+      <if test="inPrice != null">
+        #{inPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="outPrice != null">
+        #{outPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="inMoney != null">
+        #{inMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="outMoney != null">
+        #{outMoney,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dream.server.domain.OrderDet">
+    update order_det
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsId != null">
+        goods_id = #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="stockId != null">
+        stock_id = #{stockId,jdbcType=INTEGER},
+      </if>
+      <if test="inPrice != null">
+        in_price = #{inPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="outPrice != null">
+        out_price = #{outPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null">
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="inMoney != null">
+        in_money = #{inMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="outMoney != null">
+        out_money = #{outMoney,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where order_det_id = #{orderDetId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dream.server.domain.OrderDet">
+    update order_det
+    set order_id = #{orderId,jdbcType=INTEGER},
+      goods_id = #{goodsId,jdbcType=INTEGER},
+      stock_id = #{stockId,jdbcType=INTEGER},
+      in_price = #{inPrice,jdbcType=DECIMAL},
+      out_price = #{outPrice,jdbcType=DECIMAL},
+      num = #{num,jdbcType=INTEGER},
+      in_money = #{inMoney,jdbcType=DECIMAL},
+      out_money = #{outMoney,jdbcType=DECIMAL}
+    where order_det_id = #{orderDetId,jdbcType=INTEGER}
+  </update>
+</mapper>
