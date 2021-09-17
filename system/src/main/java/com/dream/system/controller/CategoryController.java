@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @RequestMapping("/category")
@@ -52,6 +53,17 @@ public class CategoryController {
     public ResponseVo delete(@PathVariable String id) {
         ResponseVo responseVo = new ResponseVo();
         categoryService.delete(id);
+        return responseVo;
+    }
+
+    /**
+     * 列表查询
+     */
+    @PostMapping("/listCategory")
+    public ResponseVo listCategory(@RequestBody CategoryVo categoryVo) {
+        ResponseVo responseVo = new ResponseVo();
+        categoryService.listCategory(categoryVo);
+        responseVo.setContent(categoryVo);
         return responseVo;
     }
 }

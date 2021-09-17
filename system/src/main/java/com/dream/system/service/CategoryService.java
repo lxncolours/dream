@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class CategoryService implements ICategoryService{
+public class CategoryService implements ICategoryService {
 
     @Resource
     private CategoryMapper categoryMapper;
@@ -76,9 +76,15 @@ public class CategoryService implements ICategoryService{
     public void delete(String id) {
         //删除之前先查出所有子节点,如果存在子节点则不允许删除
         List<CategoryVo> categoryVos = categoryDao.queryByParentId(id);
-        if (!categoryVos.isEmpty()){
+        if (!categoryVos.isEmpty()) {
             throw new BusinessException(BusinessExceptionCode.EXISTS_CHILDREN);
         }
         categoryMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public void listCategory(CategoryVo categoryVo) {
+        List<CategoryVo> categoryVos = categoryDao.listCategory(categoryVo);
+        categoryVo.setList(categoryVos);
     }
 }

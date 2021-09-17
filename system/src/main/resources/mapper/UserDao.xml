@@ -9,6 +9,9 @@
         <result column="create_time"  property="createTime"/>
         <result column="update_time"  property="updateTime"/>
     </resultMap>
+    <update id="updateUser">
+        update `user` set `name` = '测试1' where `user_id` = 1
+    </update>
 
     <select id="list" resultMap="UserVoMap">
         select u.user_id,u.login_name, u.name,u.password, date_format(create_time, '%Y-%c-%d %H:%i:%s' ) create_time, date_format(update_time, '%Y-%c-%d %H:%i:%s' ) update_time

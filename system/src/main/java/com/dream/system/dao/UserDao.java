@@ -11,4 +11,7 @@ public interface UserDao {
     List<UserVo> list(UserVo user);
 
     User selectByLoginName(String loginName);
+
+    void updateUser();
+
 }

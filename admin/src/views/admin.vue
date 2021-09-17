@@ -63,7 +63,13 @@
                   to="/admin/category"
                   class="collapse-item"
                   active-class="collapse-item active"
-                >分类管理</router-link
+                  >分类管理</router-link
+                >
+                <router-link
+                  to="/admin/goods"
+                  class="collapse-item"
+                  active-class="collapse-item active"
+                  >商品管理</router-link
                 >
               </div>
             </div>
@@ -104,13 +110,19 @@
                   active-class="collapse-item active"
                   >会员管理</router-link
                 >
-                <a class="collapse-item" href="forgot-password.html"
-                  >Forgot Password</a
+                <h6 class="collapse-header">订单:</h6>
+                <router-link
+                  to="/admin/addOrder"
+                  class="collapse-item"
+                  active-class="collapse-item active"
+                  >订单录入</router-link
                 >
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
+                <router-link
+                  to="/admin/order"
+                  class="collapse-item"
+                  active-class="collapse-item active"
+                  >订单管理</router-link
+                >
               </div>
             </div>
           </li>
@@ -392,9 +404,9 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                      >{{loginUser.name}}</span
-                    >
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{
+                      loginUser.name
+                    }}</span>
                     <img
                       class="img-profile rounded-circle"
                       src="../../public/static/img/undraw_profile.svg"
@@ -419,7 +431,8 @@
                     </a>
                     <div class="dropdown-divider"></div>
                     <a
-                      class="dropdown-item" href="#"
+                      class="dropdown-item"
+                      href="#"
                       @click="deleteDialogVisible = true"
                     >
                       <i

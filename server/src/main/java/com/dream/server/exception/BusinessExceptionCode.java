@@ -13,6 +13,9 @@ public enum BusinessExceptionCode {
     NOT_EXISTS_BAL("余额信息不存在"),
     NOT_MATCH_BAL("余额信息不匹配,请稍后再试"),
     EXISTS_CHILDREN("存在未删除的子分类,不允许删除父分类"),
+    EXISTS_NUM("存在库存,不允许删除商品"),
+    PARSE_EXCEPTION("日期格式有误"),
+
     ;
 
     private String desc;

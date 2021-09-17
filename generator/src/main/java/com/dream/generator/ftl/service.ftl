@@ -86,7 +86,7 @@ public class ${Domain}Service implements I${Domain}Service{
         ${domain}.setUpdatedAt(new Date());
             </#if>
         </#list>
-        ${domain}Mapper.updateByPrimaryKey(${domain});
+        ${domain}Mapper.updateByPrimaryKeySelective(${domain});
     }
 
     /**

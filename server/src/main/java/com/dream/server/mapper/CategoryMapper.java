@@ -1,6 +1,7 @@
 package com.dream.server.mapper;
 
 import com.dream.server.domain.Category;
+import org.apache.ibatis.annotations.Mapper;
 
 public interface CategoryMapper {
     int deleteByPrimaryKey(String categoryId);

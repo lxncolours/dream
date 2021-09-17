@@ -6,6 +6,9 @@ import Welcome from '../views/admin/welcome.vue'
 import User from '../views/admin/user.vue'
 import Customer from '../views/admin/customer.vue'
 import Category from '../views/admin/category.vue'
+import Goods from '../views/admin/goods.vue'
+import OrderDet from '../views/admin/orderDet.vue'
+import Order from '../views/admin/order.vue'
 
 Vue.use(VueRouter)
 
@@ -45,6 +48,18 @@ const routes = [
       {
         path: 'category',
         component: Category
+      },
+      {
+        path: 'goods',
+        component: Goods
+      },
+      {
+        path: 'addOrder',
+        component: OrderDet
+      },
+      {
+        path: 'order',
+        component: Order
       }
     ]
   }

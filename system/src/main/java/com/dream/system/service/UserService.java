@@ -102,6 +102,11 @@ public class UserService implements IUserService {
         }
     }
 
+    @Override
+    public void updateUser() {
+        userDao.updateUser();
+    }
+
     /**
      * 根据登录名查询user
      *

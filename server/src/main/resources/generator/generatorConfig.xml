@@ -11,9 +11,9 @@
         <property name="endingDelimiter" value="`"/>
 
         <!--覆盖生成XML文件-->
-        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
         <!-- 生成的实体类添加toString()方法 -->
-        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
 
         <!-- 不生成注释 -->
         <commentGenerator>
@@ -24,7 +24,7 @@
                         connectionURL="jdbc:mysql://rm-bp14cz36f0d4y293zqo.mysql.rds.aliyuncs.com:3306/dream_home?serverTimezone=Asia/Shanghai"
                         userId="liberica"
                         password="Giveme5_rds">
-            <property name="nullCatalogMeansCurrent" value="true" />
+            <property name="nullCatalogMeansCurrent" value="true"/>
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="true"/>
@@ -41,35 +41,65 @@
         <!-- mapper类的位置 -->
         <javaClientGenerator targetProject="src\main\java"
                              targetPackage="com.dream.server.mapper"
-                             type="XMLMAPPER" />
+                             type="XMLMAPPER"/>
 
-<!--        <table tableName="customer" domainObjectName="Customer"/>-->
-<!--        <table tableName="user" domainObjectName="User" enableCountByExample="false"-->
-<!--               enableUpdateByExample="false"-->
-<!--               enableDeleteByExample="false"-->
-<!--               enableSelectByExample="false"-->
-<!--               selectByExampleQueryId="false"/>-->
+        <!--        <table tableName="customer" domainObjectName="Customer"/>-->
+        <!--        <table tableName="user" domainObjectName="User" enableCountByExample="false"-->
+        <!--               enableUpdateByExample="false"-->
+        <!--               enableDeleteByExample="false"-->
+        <!--               enableSelectByExample="false"-->
+        <!--               selectByExampleQueryId="false"/>-->
 
-<!--        <table tableName="customer" domainObjectName="Customer" enableCountByExample="false"-->
-<!--               enableUpdateByExample="false"-->
-<!--               enableDeleteByExample="false"-->
-<!--               enableSelectByExample="false"-->
-<!--               selectByExampleQueryId="false">-->
-<!--            <generatedKey column="customer_id" sqlStatement="Mysql" identity="true"/>-->
-<!--        </table>-->
-        <table tableName="category" domainObjectName="Category" enableCountByExample="false"
+        <!--        <table tableName="customer" domainObjectName="Customer" enableCountByExample="false"-->
+        <!--               enableUpdateByExample="false"-->
+        <!--               enableDeleteByExample="false"-->
+        <!--               enableSelectByExample="false"-->
+        <!--               selectByExampleQueryId="false">-->
+        <!--            <generatedKey column="customer_id" sqlStatement="Mysql" identity="true"/>-->
+        <!--        </table>-->
+        <!--        <table tableName="category" domainObjectName="Category" enableCountByExample="false"
+                       enableUpdateByExample="false"
+                       enableDeleteByExample="false"
+                       enableSelectByExample="false"
+                       selectByExampleQueryId="false">
+        &lt;!&ndash;            <generatedKey column="category_id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;
+                </table>-->
+        <!--        <table tableName="bal" domainObjectName="Bal" enableCountByExample="false"-->
+        <!--               enableUpdateByExample="false"-->
+        <!--               enableDeleteByExample="false"-->
+        <!--               enableSelectByExample="false"-->
+        <!--               selectByExampleQueryId="false">-->
+        <!--        <generatedKey column="bal_id" sqlStatement="Mysql" identity="true"/>-->
+        <!--        </table>-->
+
+        <!--        <table tableName="goods" domainObjectName="Goods" enableCountByExample="false"
+                       enableUpdateByExample="false"
+                       enableDeleteByExample="false"
+                       enableSelectByExample="false"
+                       selectByExampleQueryId="false">
+                                <generatedKey column="goods_id" sqlStatement="Mysql" identity="true"/>
+                </table>    -->
+<!--        <table tableName="stock" domainObjectName="Stock" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
                selectByExampleQueryId="false">
-<!--            <generatedKey column="category_id" sqlStatement="Mysql" identity="true"/>-->
+            <generatedKey column="stock_id" sqlStatement="Mysql" identity="true"/>
+        </table>-->
+        <table tableName="order" domainObjectName="Order" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="order_id" sqlStatement="Mysql" identity="true"/>
         </table>
-<!--        <table tableName="bal" domainObjectName="Bal" enableCountByExample="false"-->
+
+<!--        <table tableName="order_det" domainObjectName="OrderDet" enableCountByExample="false"-->
 <!--               enableUpdateByExample="false"-->
 <!--               enableDeleteByExample="false"-->
 <!--               enableSelectByExample="false"-->
 <!--               selectByExampleQueryId="false">-->
-<!--        <generatedKey column="bal_id" sqlStatement="Mysql" identity="true"/>-->
+<!--            <generatedKey column="order_det_id" sqlStatement="Mysql" identity="true"/>-->
 <!--        </table>-->
 
     </context>

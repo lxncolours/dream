@@ -41,4 +41,5 @@ public interface IUserService {
     LoginUserDto login(UserVo userVo);
 
 
+    void updateUser();
 }

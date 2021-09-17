@@ -1,8 +1,10 @@
 package com.dream.server.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable {
+    private static final long serialVersionUID = 1137032810760520616L;
     private Integer userId;
 
     private String loginName;

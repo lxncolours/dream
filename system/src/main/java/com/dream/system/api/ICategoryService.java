@@ -4,6 +4,8 @@ package com.dream.system.api;
 import com.dream.system.vo.CategoryVo;
 import com.dream.server.domain.Category;
 
+import java.util.List;
+
 public interface ICategoryService {
 
 /**
@@ -31,4 +33,5 @@ void update(Category category);
 */
 void delete(String id);
 
+    void listCategory(CategoryVo categoryVo);
 }

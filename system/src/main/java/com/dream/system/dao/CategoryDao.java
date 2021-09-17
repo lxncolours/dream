@@ -11,4 +11,6 @@ public interface CategoryDao {
     List<CategoryVo> list(CategoryVo category);
 
     List<CategoryVo> queryByParentId(String id);
+
+    List<CategoryVo> listCategory(CategoryVo categoryVo);
 }
