@@ -1,29 +1,26 @@
 package com.dream.business.service;
 
+import com.dream.business.api.IStockService;
+import com.dream.business.dao.StockDao;
+import com.dream.business.vo.StockVo;
 import com.dream.server.domain.Goods;
 import com.dream.server.domain.Stock;
-import com.dream.business.vo.StockVo;
 import com.dream.server.mapper.GoodsMapper;
 import com.dream.server.mapper.StockMapper;
 import com.dream.server.util.CopyUtil;
-import com.dream.server.util.UuidUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
-import com.dream.business.api.IStockService;
-import com.dream.business.dao.StockDao;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.List;
 import java.util.Date;
+import java.util.List;
 
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class StockService implements IStockService {
 
     @Resource

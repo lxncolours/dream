@@ -1,14 +1,15 @@
 package com.dream.business.service;
 
-import com.dream.server.domain.Order;
+import com.dream.business.api.IOrderService;
+import com.dream.business.dao.OrderDao;
 import com.dream.business.vo.OrderVo;
+import com.dream.server.domain.Order;
 import com.dream.server.domain.OrderDet;
 import com.dream.server.domain.Stock;
 import com.dream.server.mapper.OrderDetMapper;
 import com.dream.server.mapper.OrderMapper;
 import com.dream.server.mapper.StockMapper;
 import com.dream.server.util.CopyUtil;
-import com.dream.server.util.UuidUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
@@ -16,8 +17,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
-import com.dream.business.api.IOrderService;
-import com.dream.business.dao.OrderDao;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
@@ -25,7 +24,8 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class OrderService implements IOrderService{
+@Transactional(rollbackFor = Exception.class)
+public class OrderService implements IOrderService {
     private static final Logger LOG = LoggerFactory.getLogger(OrderService.class);
 
     @Resource

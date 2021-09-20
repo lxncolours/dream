@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dream.business.dao.DrugsBillDetDao">
+
+
+    <insert id="insertList">
+        insert into dream_home.drugs_bill_det (bill_id, goods_name, goods_num, sale_price, cost_price, goods_amount)
+        values
+        <foreach collection="list" item="det" index="index" separator=",">
+            (
+            #{billId}, #{det.goodsName},
+            #{det.goodsNum},
+            #{det.salePrice},
+            #{det.costPrice}, #{det.goodsAmount}
+            )
+        </foreach>
+
+
+    </insert>
+    <select id="list" resultType="com.dream.business.vo.DrugsBillDetVo">
+
+
+    </select>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dream.business.dao.DrugsBillDao">
+    <update id="updateBillAmountById">
+        update drugs_bill a
+        set a.bill_amount = (select sum(b.goods_amount)
+                             from drugs_bill_det b
+                             where a.bill_id = b.bill_id
+                             group by b.bill_id)
+        where a.bill_id = #{billId}
+    </update>
+
+
+    <select id="list" resultType="com.dream.business.vo.DrugsBillVo"></select>
+</mapper>

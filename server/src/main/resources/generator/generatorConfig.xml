@@ -79,28 +79,44 @@
                        selectByExampleQueryId="false">
                                 <generatedKey column="goods_id" sqlStatement="Mysql" identity="true"/>
                 </table>    -->
-<!--        <table tableName="stock" domainObjectName="Stock" enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <generatedKey column="stock_id" sqlStatement="Mysql" identity="true"/>
-        </table>-->
-        <table tableName="order" domainObjectName="Order" enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <generatedKey column="order_id" sqlStatement="Mysql" identity="true"/>
-        </table>
+        <!--        <table tableName="stock" domainObjectName="Stock" enableCountByExample="false"
+                       enableUpdateByExample="false"
+                       enableDeleteByExample="false"
+                       enableSelectByExample="false"
+                       selectByExampleQueryId="false">
+                    <generatedKey column="stock_id" sqlStatement="Mysql" identity="true"/>
+                </table>-->
+        <!--        <table tableName="order" domainObjectName="Order" enableCountByExample="false"-->
+        <!--               enableUpdateByExample="false"-->
+        <!--               enableDeleteByExample="false"-->
+        <!--               enableSelectByExample="false"-->
+        <!--               selectByExampleQueryId="false">-->
+        <!--            <generatedKey column="order_id" sqlStatement="Mysql" identity="true"/>-->
+        <!--        </table>-->
 
-<!--        <table tableName="order_det" domainObjectName="OrderDet" enableCountByExample="false"-->
-<!--               enableUpdateByExample="false"-->
-<!--               enableDeleteByExample="false"-->
-<!--               enableSelectByExample="false"-->
-<!--               selectByExampleQueryId="false">-->
-<!--            <generatedKey column="order_det_id" sqlStatement="Mysql" identity="true"/>-->
-<!--        </table>-->
+        <!--        <table tableName="order_det" domainObjectName="OrderDet" enableCountByExample="false"-->
+        <!--               enableUpdateByExample="false"-->
+        <!--               enableDeleteByExample="false"-->
+        <!--               enableSelectByExample="false"-->
+        <!--               selectByExampleQueryId="false">-->
+        <!--            <generatedKey column="order_det_id" sqlStatement="Mysql" identity="true"/>-->
+        <!--        </table>-->
+
+        <!--        <table tableName="drugs_bill" domainObjectName="DrugsBill" enableCountByExample="false"
+                       enableUpdateByExample="false"
+                       enableDeleteByExample="false"
+                       enableSelectByExample="false"
+                       selectByExampleQueryId="false">
+                    <generatedKey column="bill_id" sqlStatement="Mysql" identity="true"/>
+                </table>-->
+
+        <table tableName="drugs_bill_det" domainObjectName="DrugsBillDet" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="bill_det_id" sqlStatement="Mysql" identity="true"/>
+        </table>
 
     </context>
 </generatorConfiguration>

@@ -1,23 +1,21 @@
 package com.dream.business.service;
 
+import com.dream.business.api.ICustomerService;
+import com.dream.business.dao.CustomerDao;
 import com.dream.business.vo.BalVo;
+import com.dream.business.vo.CustomerVo;
 import com.dream.server.domain.Bal;
 import com.dream.server.domain.Customer;
-import com.dream.business.vo.CustomerVo;
 import com.dream.server.exception.BusinessException;
 import com.dream.server.exception.BusinessExceptionCode;
 import com.dream.server.mapper.BalMapper;
 import com.dream.server.mapper.CustomerMapper;
 import com.dream.server.util.CopyUtil;
-import com.dream.server.util.UuidUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
-import com.dream.business.api.ICustomerService;
-import com.dream.business.dao.CustomerDao;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
@@ -30,6 +28,7 @@ import java.util.List;
  * @date 2021-07-17
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class CustomerService implements ICustomerService {
 
     @Resource
@@ -143,9 +142,9 @@ public class CustomerService implements ICustomerService {
         } else {
             BigDecimal balance = bal.getBalance();
             int i = balVo.getBalance().compareTo(bal.getBalance());
-            if (i!= 0){
+            if (i != 0) {
                 throw new BusinessException(BusinessExceptionCode.NOT_MATCH_BAL);
-            }else {
+            } else {
                 //更新余额为0
                 bal.setBalance(BigDecimal.ZERO);
                 balMapper.updateByPrimaryKeySelective(bal);
