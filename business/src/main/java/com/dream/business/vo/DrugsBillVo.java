@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -25,6 +26,8 @@ public class DrugsBillVo extends PageVo<DrugsBillVo> {
      *
      */
     private BigDecimal billAmount;
+
+    private Date billDate;
 
     private List<DrugsBillDetVo> billDet;
     

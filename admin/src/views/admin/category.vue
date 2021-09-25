@@ -176,7 +176,7 @@
 
 <script>
 export default {
-  name: 'system-category',
+  name: 'business-category',
   data() {
     return {
       categorys: [],
@@ -302,7 +302,7 @@ export default {
       _this.isLoading(level, _this)
       _this.$ajax
         .post(
-          process.env.VUE_APP_SERVER + '/system/category/save',
+          process.env.VUE_APP_SERVER + '/business/category/save',
           _this.categoryForm
         )
         .then(response => {
@@ -353,7 +353,7 @@ export default {
       _this.loadingOne = true
       _this.$ajax
         .post(
-          process.env.VUE_APP_SERVER + '/system/category/list',
+          process.env.VUE_APP_SERVER + '/business/category/list',
           _this.queryForm
         )
         .then(response => {
@@ -369,7 +369,7 @@ export default {
       _this.loadingTwo = true
       _this.$ajax
         .post(
-          process.env.VUE_APP_SERVER + '/system/category/list',
+          process.env.VUE_APP_SERVER + '/business/category/list',
           _this.queryForm
         )
         .then(response => {
@@ -386,7 +386,7 @@ export default {
       _this.loadingThree = true
       _this.$ajax
         .post(
-          process.env.VUE_APP_SERVER + '/system/category/list',
+          process.env.VUE_APP_SERVER + '/business/category/list',
           _this.queryForm
         )
         .then(response => {
@@ -409,7 +409,7 @@ export default {
       _this.$ajax
         .delete(
           process.env.VUE_APP_SERVER +
-            '/system/category/delete/' +
+            '/business/category/delete/' +
             _this.deleteId
         )
         .then(response => {

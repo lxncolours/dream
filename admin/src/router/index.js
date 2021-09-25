@@ -9,6 +9,7 @@ import Category from '../views/admin/category.vue'
 import Goods from '../views/admin/goods.vue'
 import OrderDet from '../views/admin/orderDet.vue'
 import Order from '../views/admin/order.vue'
+import AddDrugsBill from '../views/admin/addDrugsBill.vue'
 import DrugsBill from '../views/admin/drugsBill.vue'
 
 Vue.use(VueRouter)
@@ -65,6 +66,10 @@ const routes = [
       {
         path: 'drugsBill',
         component: DrugsBill
+      },
+      {
+        path: 'addDrugsBill',
+        component: AddDrugsBill
       }
     ]
   }

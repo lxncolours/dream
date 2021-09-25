@@ -131,23 +131,29 @@
               class="nav-link collapsed"
               href="#"
               data-toggle="collapse"
-              data-target="#collapsePages"
+              data-target="#billPages"
               aria-expanded="true"
-              aria-controls="collapsePages"
+              aria-controls="billPages"
             >
               <i class="fas fa-fw fa-folder"></i>
               <span>账单管理</span>
             </a>
             <div
-              id="collapsePages"
+              id="billPages"
               class="collapse"
-              aria-labelledby="headingPages"
+              aria-labelledby="headingBill"
               data-parent="#accordionSidebar"
             >
               <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">药品管理:</h6>
                 <router-link
                   to="/admin/drugsBill"
+                  class="collapse-item"
+                  active-class="collapse-item active"
+                  >账单查询</router-link
+                >
+                <router-link
+                  to="/admin/addDrugsBill"
                   class="collapse-item"
                   active-class="collapse-item active"
                   >账单录入</router-link
@@ -504,7 +510,7 @@ export default {
       _this.$ajax
         .get(
           process.env.VUE_APP_SERVER +
-            '/system/user/logout/' +
+            '/business/user/logout/' +
             _this.loginUser.token
         )
         .then(response => {

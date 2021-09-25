@@ -1,6 +1,6 @@
 <template>
   <body class="bg-lxn-gradient-primary">
-    <div class="container" >
+    <div class="container">
       <!-- Outer Row -->
       <div class="row justify-content-center">
         <div class="col-xl-10 col-lg-12 col-md-9">
@@ -92,15 +92,14 @@ export default {
       console.log(_this.user.password)
 
       _this.$ajax
-        .post(process.env.VUE_APP_SERVER + '/system/user/login', _this.user)
+        .post(process.env.VUE_APP_SERVER + '/business/user/login', _this.user)
         .then(response => {
           console.log(response)
           let resp = response.data
           if (resp.success) {
-            console.log('登录成功：', resp.content)
             let loginUser = resp.content
             Tool.setLoginUser(loginUser)
-            console.log('loginName' + loginUser.loginName)
+            console.log('登录成功：', loginUser.loginName)
             // 判断“记住我”
             if (_this.remember) {
               // 如果勾选记住我，则将用户名密码保存到本地缓存

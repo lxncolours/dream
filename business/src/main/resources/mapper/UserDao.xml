@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dream.business.dao.UserDao">
+    <resultMap id="UserVoMap" type="com.dream.business.vo.UserVo">
+        <id column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="login_name" jdbcType="VARCHAR" property="loginName"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+    <update id="updateUser">
+        update `user`
+        set `name` = '测试1'
+        where `user_id` = 1
+    </update>
+
+    <select id="list" resultMap="UserVoMap">
+        select u.user_id,u.login_name, u.name,u.password, date_format(create_time, '%Y-%c-%d %H:%i:%s' ) create_time,
+        date_format(update_time, '%Y-%c-%d %H:%i:%s' ) update_time
+        from `user` u
+        <where>
+            <if test="loginName!=null and  '' != loginName">
+                u.login_name = #{loginName}
+            </if>
+            <if test="name!=null and  '' != name">
+                and u.name = #{name}
+            </if>
+        </where>
+    </select>
+    <select id="selectByLoginName" resultType="com.dream.server.domain.User">
+        select login_name loginName, `name`, password
+        from `user`
+        where login_name = #{loginName}
+    </select>
+</mapper>

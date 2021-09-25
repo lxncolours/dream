@@ -9,8 +9,6 @@ import com.dream.server.domain.DrugsBill;
 import com.dream.server.domain.DrugsBillDet;
 import com.dream.server.mapper.DrugsBillMapper;
 import com.dream.server.util.CopyUtil;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -37,12 +35,8 @@ public class DrugsBillService implements IDrugsBillService {
      */
     @Override
     public void list(DrugsBillVo drugsBillVo) {
-        PageHelper.startPage(drugsBillVo.getPage(), drugsBillVo.getSize());
         List<DrugsBillVo> drugsBillList = drugsBillDao.list(drugsBillVo);
-        PageInfo<DrugsBillVo> pageInfo = new PageInfo<>(drugsBillList);
-        drugsBillVo.setTotal(pageInfo.getTotal());
         drugsBillVo.setList(drugsBillList);
-
     }
 
     /**

@@ -275,7 +275,7 @@
 
 <script>
 export default {
-  name: 'system-goods',
+  name: 'business-goods',
   data() {
     return {
       // 默认第一页,10条
@@ -389,7 +389,7 @@ export default {
       let _this = this
       _this.loading = true
       _this.$ajax
-        .post(process.env.VUE_APP_SERVER + '/system/goods/list', {
+        .post(process.env.VUE_APP_SERVER + '/business/goods/list', {
           page: _this.pageform.page,
           size: _this.pageform.size,
           category1Id: _this.queryGoods.category1Id,
@@ -416,7 +416,7 @@ export default {
       let _this = this
       _this.loading = true
       _this.$ajax
-        .delete(process.env.VUE_APP_SERVER + '/system/goods/delete/' + id)
+        .delete(process.env.VUE_APP_SERVER + '/business/goods/delete/' + id)
         .then(response => {
           _this.loading = false
           let resp = response.data
@@ -440,7 +440,7 @@ export default {
           _this.goodsForm.password = hex_md5(_this.goodsForm.password + KEY)
           _this.$ajax
             .post(
-              process.env.VUE_APP_SERVER + '/system/goods/save',
+              process.env.VUE_APP_SERVER + '/business/goods/save',
               _this.goodsForm
             )
             .then(response => {
@@ -512,7 +512,7 @@ export default {
     listCategoryInit(level, categoryId) {
       let _this = this
       _this.$ajax
-        .post(process.env.VUE_APP_SERVER + '/system/category/listCategory', {
+        .post(process.env.VUE_APP_SERVER + '/business/category/listCategory', {
           level,
           categoryId
         })
@@ -534,7 +534,7 @@ export default {
     listCategory(level, categoryId) {
       let _this = this
       _this.$ajax
-        .post(process.env.VUE_APP_SERVER + '/system/category/listCategory', {
+        .post(process.env.VUE_APP_SERVER + '/business/category/listCategory', {
           level,
           categoryId
         })
@@ -555,7 +555,7 @@ export default {
     listCategory2(level, categoryId) {
       let _this = this
       _this.$ajax
-        .post(process.env.VUE_APP_SERVER + '/system/category/listCategory', {
+        .post(process.env.VUE_APP_SERVER + '/business/category/listCategory', {
           level,
           categoryId
         })
@@ -592,7 +592,7 @@ export default {
       } else {
         _this.$ajax
           .post(
-            process.env.VUE_APP_SERVER + '/system/stock/stock/',
+            process.env.VUE_APP_SERVER + '/business/stock/stock/',
             _this.stockForm
           )
           .then(response => {

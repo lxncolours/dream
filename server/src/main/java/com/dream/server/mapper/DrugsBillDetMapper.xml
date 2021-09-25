@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dream.server.mapper.DrugsBillDetMapper">
+  <resultMap id="BaseResultMap" type="com.dream.server.domain.DrugsBillDet">
+    <id column="bill_det_id" jdbcType="INTEGER" property="billDetId" />
+    <result column="bill_id" jdbcType="INTEGER" property="billId" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="goods_num" jdbcType="INTEGER" property="goodsNum" />
+    <result column="sale_price" jdbcType="DECIMAL" property="salePrice" />
+    <result column="cost_price" jdbcType="DECIMAL" property="costPrice" />
+    <result column="goods_amount" jdbcType="DECIMAL" property="goodsAmount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    bill_det_id, bill_id, goods_name, goods_num, sale_price, cost_price, goods_amount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from drugs_bill_det
+    where bill_det_id = #{billDetId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from drugs_bill_det
+    where bill_det_id = #{billDetId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dream.server.domain.DrugsBillDet">
+    <selectKey keyProperty="billDetId" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into drugs_bill_det (bill_id, goods_name, goods_num, 
+      sale_price, cost_price, goods_amount
+      )
+    values (#{billId,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, #{goodsNum,jdbcType=INTEGER}, 
+      #{salePrice,jdbcType=DECIMAL}, #{costPrice,jdbcType=DECIMAL}, #{goodsAmount,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dream.server.domain.DrugsBillDet">
+    <selectKey keyProperty="billDetId" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into drugs_bill_det
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="billId != null">
+        bill_id,
+      </if>
+      <if test="goodsName != null">
+        goods_name,
+      </if>
+      <if test="goodsNum != null">
+        goods_num,
+      </if>
+      <if test="salePrice != null">
+        sale_price,
+      </if>
+      <if test="costPrice != null">
+        cost_price,
+      </if>
+      <if test="goodsAmount != null">
+        goods_amount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="billId != null">
+        #{billId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null">
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsNum != null">
+        #{goodsNum,jdbcType=INTEGER},
+      </if>
+      <if test="salePrice != null">
+        #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="costPrice != null">
+        #{costPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsAmount != null">
+        #{goodsAmount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dream.server.domain.DrugsBillDet">
+    update drugs_bill_det
+    <set>
+      <if test="billId != null">
+        bill_id = #{billId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null">
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsNum != null">
+        goods_num = #{goodsNum,jdbcType=INTEGER},
+      </if>
+      <if test="salePrice != null">
+        sale_price = #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="costPrice != null">
+        cost_price = #{costPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsAmount != null">
+        goods_amount = #{goodsAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where bill_det_id = #{billDetId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dream.server.domain.DrugsBillDet">
+    update drugs_bill_det
+    set bill_id = #{billId,jdbcType=INTEGER},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      goods_num = #{goodsNum,jdbcType=INTEGER},
+      sale_price = #{salePrice,jdbcType=DECIMAL},
+      cost_price = #{costPrice,jdbcType=DECIMAL},
+      goods_amount = #{goodsAmount,jdbcType=DECIMAL}
+    where bill_det_id = #{billDetId,jdbcType=INTEGER}
+  </update>
+</mapper>

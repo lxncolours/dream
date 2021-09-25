@@ -43,7 +43,7 @@ let optionKVArray = (key, list) => {
  * @param value 例如：36000
  * @returns {string} 例如：10:00:00
  */
-let formatSecond = (value) => {
+let formatSecond = value => {
   value = value || 0
   let second = parseInt(value, 10) // 秒
   let minute = 0 // 分
@@ -70,7 +70,7 @@ let formatSecond = (value) => {
 /**
  * 时间格式化，date为空时取当前时间
  */
-let dateFormatMm = (dataStr) => {
+let dateFormatMm = dataStr => {
   var dt = new Date(dataStr)
   // yyyy-mm-dd
   var y = dt.getFullYear()
@@ -95,7 +95,7 @@ function PrefixInteger(num, length) {
  * @param value
  * @returns {string}
  */
-let formatFileSize = (value) => {
+let formatFileSize = value => {
   value = value || 0
   let result
   if (value > 100 * 1024) {

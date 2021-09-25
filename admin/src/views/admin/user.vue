@@ -132,7 +132,7 @@
 
 <script>
 export default {
-  name: 'system-user',
+  name: 'business-user',
   data() {
     return {
       // 默认第一页,10条
@@ -215,7 +215,7 @@ export default {
       let _this = this
       _this.loading = true
       _this.$ajax
-        .post(process.env.VUE_APP_SERVER + '/system/user/list', {
+        .post(process.env.VUE_APP_SERVER + '/business/user/list', {
           page: _this.pageform.page,
           size: _this.pageform.size,
           loginName: _this.queryUser.loginName,
@@ -239,7 +239,7 @@ export default {
       let _this = this
       _this.loading = true
       _this.$ajax
-        .delete(process.env.VUE_APP_SERVER + '/system/user/delete/' + id)
+        .delete(process.env.VUE_APP_SERVER + '/business/user/delete/' + id)
         .then(response => {
           _this.loading = false
           let resp = response.data
@@ -264,7 +264,7 @@ export default {
           _this.userForm.password = hex_md5(_this.userForm.password + KEY)
           _this.$ajax
             .post(
-              process.env.VUE_APP_SERVER + '/system/user/save',
+              process.env.VUE_APP_SERVER + '/business/user/save',
               _this.userForm
             )
             .then(response => {

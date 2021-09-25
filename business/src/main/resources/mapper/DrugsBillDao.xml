@@ -11,5 +11,10 @@
     </update>
 
 
-    <select id="list" resultType="com.dream.business.vo.DrugsBillVo"></select>
+    <select id="list" resultType="com.dream.business.vo.DrugsBillVo">
+        select bill_id billId, customer_name customerName, bill_date billDate, bill_amount billAmount
+        from drugs_bill
+        where customer_name = #{customerName}
+
+    </select>
 </mapper>
