@@ -110,12 +110,12 @@
                     <generatedKey column="bill_id" sqlStatement="Mysql" identity="true"/>
                 </table>-->
 
-        <table tableName="drugs_bill_det" domainObjectName="DrugsBillDet" enableCountByExample="false"
+        <table tableName="drugs_bill" domainObjectName="DrugsBill" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
                selectByExampleQueryId="false">
-            <generatedKey column="bill_det_id" sqlStatement="Mysql" identity="true"/>
+            <generatedKey column="bill_id" sqlStatement="Mysql" identity="true"/>
         </table>
 
     </context>

@@ -9,8 +9,6 @@
         <module>system</module>
         <module>gateway</module>
         <module>generator</module>
-        <module>api</module>
-        <module>search</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -83,12 +81,6 @@
             </dependency>
 
             <dependency>
-                <groupId>com.liberica</groupId>
-                <artifactId>api</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
@@ -106,28 +98,6 @@
 
         </dependencies>
     </dependencyManagement>
-    <build>
-        <plugins>
 
-            <!-- mybatis generator 自动生成代码插件 -->
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.4.0</version>
-                <configuration>
-                    <configurationFile>src/main/resources/generator/generatorConfig.xml</configurationFile>
-                    <overwrite>true</overwrite>
-                    <verbose>true</verbose>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>8.0.22</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
